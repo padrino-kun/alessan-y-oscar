@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alessandra y oscar </title>
+<style>
+  body {
+    font-family: 'Times New Roman', serif;
+    background-color: #1a1a1a; /* Fondo oscuro */
+    color: #ff4d6d; /* Rojo rosado */
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    letter-spacing: 1px; /* Espaciado entre letras */
+  }
+  #contenido {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  #corazon {
+    font-size: 200px;
+    margin-bottom: 20px;
+    text-shadow: 0px 0px 15px rgba(255, 77, 109, 0.8); /* Sombra del corazón */
+  }
+  #mensaje {
+    font-size: 48px;
+    margin-top: 20px;
+    text-shadow: 0px 0px 15px rgba(255, 77, 109, 0.8); /* Sombra del mensaje */
+  }
+  #autor {
+    font-size: 24px;
+    margin-top: 20px;
+    opacity: 0.7; /* Opacidad del autor */
+  }
+  #audio-container {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: -1;
+  }
+  audio {
+    display: none;
+  }
+  #audio-controls {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: black;
+    padding: 10px;
+    border: 2px solid red;
+    border-radius: 5px;
+    z-index: 9999;
+  }
+
+  #play-pause-button {
+    color: white;
+    background-color: red;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+
+  #volume-slider {
+    width: 100px;
+  }
+</style>
+</head>
+<body>
+<div id="contenido">
+  <div id="corazon">&hearts;</div>
+  <div id="mensaje">Alessandra, me encanta como eres, te amo</div>
+  <div id="autor">- att: tu amorcito oscar -</div>
+</div>
+<div id="audio-container">
+  <audio autoplay loop>
+    <source src="cancion.mp3" type="audio/mp3">
+    <!-- Asegúrate de reemplazar "ruta_de_la_cancion.mp3" con la ruta de la canción favorita de Alessandra -->
+    Tu navegador no soporta la reproducción de audio.
+  </audio>
+</div>
+<div id="audio-controls">
+  <button id="play-pause-button">Play/Pause</button>
+  <input id="volume-slider" type="range" min="0" max="1" step="0.1" value="1">
+</div>
+<script>
+  const audio = document.querySelector('audio');
+  const playPauseButton = document.getElementById('play-pause-button');
+  const volumeSlider = document.getElementById('volume-slider');
+
+  playPauseButton.addEventListener('click', function() {
+    if (audio.paused) {
+      audio.play();
+      playPauseButton.textContent = 'Pause';
+    } else {
+      audio.pause();
+      playPauseButton.textContent = 'Play';
+    }
+  });
+
+  volumeSlider.addEventListener('input', function() {
+    audio.volume = volumeSlider.value;
+  });
+</script>
+</body>
+</html>
+
+
